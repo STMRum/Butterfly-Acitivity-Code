@@ -28,6 +28,8 @@ data$Time_Start <- hms::as_hms(format(data$Time_Start, "%H:%M:%S"))
 data$Time_End <- hms::as_hms(format(data$Time_End, "%H:%M:%S"))
 
 data$Time_Start_numeric <- hour(data$Time_Start) * 3600 + minute(data$Time_Start) * 60 + second(data$Time_Start)
+data$Time_Start_numeric <- data$Time_Start_numeric/3600
+
 
 Count_v_Temp <- lm(Count_per_100meter ~ Average_Temp, data = data)
 Count_v_Humid <- lm(Count_per_100meter ~ Average_Humidity, data = data)
